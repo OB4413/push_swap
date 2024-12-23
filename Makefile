@@ -1,5 +1,5 @@
 NAME = push_swap
-SOURCES = src/push_swap.c src/creat_stack.c
+SOURCES = src/push_swap.c src/creat_stack.c src/command.c
 lib = libft/libft.a
 
 OBJECTS = $(SOURCES:.c=.o)

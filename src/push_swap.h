@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:18 by obarais           #+#    #+#             */
-/*   Updated: 2024/12/23 10:43:55 by obarais          ###   ########.fr       */
+/*   Updated: 2024/12/24 18:34:22 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
+#include <unistd.h>
 #include <unistd.h>
 
 typedef struct l_stack
@@ -31,11 +32,16 @@ char	*ft_strdup(const char *s1);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int     ft_atoi(const char *str);
-void    swap_a(t_stack **a);
+void    swap_a_b(t_stack **ab);
+void    swap_a_and_b(t_stack **a, t_stack **b);
 void    push_ab_choose(t_stack **ab1, t_stack **ab2);
 void    rotate_ab(t_stack **ab);
 void    rr_ab(t_stack **a, t_stack **b);
 void    reverse_r_ab(t_stack **ab);
 void    rrr_ab(t_stack **a, t_stack **b);
+void    algorithm_sort(t_stack **a, t_stack **b);
+int     ft_size_a(t_stack **a);
+int     position_small_int(t_stack **a, t_stack **b);
+void    put_small_in_the_top(t_stack **a, t_stack **b);
 
 #endif

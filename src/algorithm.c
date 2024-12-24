@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 17:19:49 by obarais           #+#    #+#             */
-/*   Updated: 2024/12/24 18:44:03 by obarais          ###   ########.fr       */
+/*   Updated: 2024/12/24 21:51:51 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,12 @@ void    put_small_in_the_top(t_stack **a, t_stack **b)
     
     size = ft_size_a(&(*a));
     i = position_small_int(&(*a), &(*b));
-    
-    if (i < size / 2)
+    if (i == 1 && (size / 2) < 1)
+    {
+        push_ab_choose(&(*a), &(*b));
+        write(1, "pb\n", 3);
+    }
+    else if (i < size / 2)
     {
         while(j < i - 1)
         {
@@ -73,7 +77,7 @@ void    put_small_in_the_top(t_stack **a, t_stack **b)
     }
     else
     {
-        i = size - i;
+        i = size - i + 1;
         while(j < i)
         {
             reverse_r_ab(&(*a));

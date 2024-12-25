@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 17:19:49 by obarais           #+#    #+#             */
-/*   Updated: 2024/12/24 21:51:51 by obarais          ###   ########.fr       */
+/*   Updated: 2024/12/25 10:16:28 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ int ft_size_a(t_stack **a)
     return (i);
 }
 
-int    position_small_int(t_stack **a, t_stack **b)
+int    position_small_int(t_stack **a)
 {
-    (void)b;
     t_stack *tmp;
     int     temp;
     int     i = 0;
@@ -60,11 +59,21 @@ void    put_small_in_the_top(t_stack **a, t_stack **b)
     int size;
     
     size = ft_size_a(&(*a));
-    i = position_small_int(&(*a), &(*b));
-    if (i == 1 && (size / 2) < 1)
+    i = position_small_int(&(*a));
+    if (i == size && i > 2)
     {
-        push_ab_choose(&(*a), &(*b));
-        write(1, "pb\n", 3);
+        reverse_r_ab(&(*a));
+        write(1, "rra\n", 4);
+    }
+    else if (i == 1)
+    {
+        (void)b;
+        return ;
+    }
+    else if (i == 2)
+    {
+        swap_a_b(&(*a));
+        write(1, "sa\n", 3);
     }
     else if (i < size / 2)
     {
@@ -75,7 +84,7 @@ void    put_small_in_the_top(t_stack **a, t_stack **b)
             j++;
         }
     }
-    else
+    else if (i > size / 2)
     {
         i = size - i + 1;
         while(j < i)
@@ -89,7 +98,10 @@ void    put_small_in_the_top(t_stack **a, t_stack **b)
 
 void    algorithm_sort(t_stack **a, t_stack **b)
 {
-    put_small_in_the_top(&(*a), &(*b));
-    push_ab_choose(&(*a), &(*b));
-    write(1, "pb\n", 3);
+    if(a && *a)
+    {
+        put_small_in_the_top(&(*a), &(*b));
+        push_ab_choose(&(*a), &(*b));
+        write(1, "pb\n", 3);
+    }
 }

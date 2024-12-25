@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:18 by obarais           #+#    #+#             */
-/*   Updated: 2024/12/24 18:34:22 by obarais          ###   ########.fr       */
+/*   Updated: 2024/12/25 10:00:00 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void    reverse_r_ab(t_stack **ab);
 void    rrr_ab(t_stack **a, t_stack **b);
 void    algorithm_sort(t_stack **a, t_stack **b);
 int     ft_size_a(t_stack **a);
-int     position_small_int(t_stack **a, t_stack **b);
+int     position_small_int(t_stack **a);
 void    put_small_in_the_top(t_stack **a, t_stack **b);
 
 #endif

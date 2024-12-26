@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:25 by obarais           #+#    #+#             */
-/*   Updated: 2024/12/24 21:32:23 by obarais          ###   ########.fr       */
+/*   Updated: 2024/12/26 14:44:06 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int main(int ac, char **av)
         algorithm_sort(&a, &b);
         i++;
     }
-    i = 0;
-    while (i < size)
+    a = b;
+    b = NULL;
+    while (a)
     {
-        push_ab_choose(&b, &a);
-        write(1, "pa\n", 3);
-        i++;
+        printf("[%d]", a->content);
+        a = a->next;
     }
     return (0);
 }

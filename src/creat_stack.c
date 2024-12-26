@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:45 by obarais           #+#    #+#             */
-/*   Updated: 2024/12/25 09:52:00 by obarais          ###   ########.fr       */
+/*   Updated: 2024/12/26 11:59:13 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@ t_stack *creat_stack(t_stack **a, char **av)
     t_stack *p = NULL;
     t_stack *new_node;
     int i;
+    // int k = 0;
 
     i = 1;
-    // if ((error_syntax(a)) == 0)
-    //     return (p);
+    // while (k < 100)
+    // {
+    //     if ((error_syntax(av[i])) == 1)
+    //         return (p);
+    //     k++;
+    // }
     while (av[i])
     {
         new_node = malloc(sizeof(t_stack));

@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   algorithm1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 17:19:49 by obarais           #+#    #+#             */
-/*   Updated: 2024/12/26 14:43:04 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/06 11:34:58 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_size_a(t_stack **a)
-{
-    t_stack *tmp;
-    int     i;
-    
-    i = 0;
-    tmp = *a;
-    while (tmp)
-    {
-        tmp = tmp->next;
-        i++;
-    }
-    return (i);
-}
-
-int    position_big_int(t_stack **a)
+static int    position_big_int(t_stack **a)
 {
     t_stack *tmp;
     int     temp;
@@ -52,35 +37,35 @@ int    position_big_int(t_stack **a)
     return (i);
 }
 
-void    put_big_in_the_top(t_stack **a, t_stack **b)
+static void    put_big_in_the_top(t_stack **b, t_stack **a)
 {
     int i;
     int j = 0;
     int size;
     
-    size = ft_size_a(&(*a));
-    i = position_big_int(&(*a));
+    size = ft_size_a(&(*b));
+    i = position_big_int(&(*b));
     if (i == size && i > 2)
     {
-        reverse_r_ab(&(*a));
-        write(1, "rra\n", 4);
+        reverse_r_ab(&(*b));
+        write(1, "rrb\n", 4);
     }
     else if (i == 1)
     {
-        (void)b;
+        (void)a;
         return ;
     }
     else if (i == 2)
     {
-        swap_a_b(&(*a));
-        write(1, "sa\n", 3);
+        swap_a_b(&(*b));
+        write(1, "sb\n", 3);
     }
     else if (i <= size / 2)
     {
         while(j < i - 1)
         {
-            rotate_ab(&(*a));
-            write(1, "ra\n", 4);
+            rotate_ab(&(*b));
+            write(1, "rb\n", 3);
             j++;
         }
     }
@@ -89,19 +74,16 @@ void    put_big_in_the_top(t_stack **a, t_stack **b)
         i = size - i + 1;
         while(j < i)
         {
-            reverse_r_ab(&(*a));
-            write(1, "rra\n", 4);
+            reverse_r_ab(&(*b));
+            write(1, "rrb\n", 4);
             j++;
         }
     }
 }
 
-void    algorithm_sort(t_stack **a, t_stack **b)
+void    algorithm_sort_1(t_stack **a, t_stack **b)
 {
-    if(a && *a)
-    {
-        put_big_in_the_top(&(*a), &(*b));
-        push_ab_choose(&(*a), &(*b));
-        write(1, "pb\n", 4);
-    }
+    put_big_in_the_top(&(*b), &(*a));
+    push_ab_choose(&(*b), &(*a));
+    write(1, "pa\n", 3);
 }

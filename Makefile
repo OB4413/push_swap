@@ -9,7 +9,7 @@ OBJECTS = $(SOURCES:.c=.o)
 BOBJECTS = $(SOURCES_BONUS:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 
@@ -23,7 +23,7 @@ $(print):
 	make -C ft_printf
 
 bonus: all $(lib) $(print) $(BOBJECTS)
-	$(CC) $(BOBJECTS) $(lib) $(print) -o $(BONUS)
+	$(CC) $(CFLAGS) $(BOBJECTS) $(lib) $(print) -o $(BONUS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -42,6 +42,6 @@ fclean: clean
 
 re: fclean all
 
-.SECONDARY: $(OBJECTS)
+.SECONDARY: $(OBJECTS) $(BOBJECTS)
 
 .PHONY: all bonus clean fclean re

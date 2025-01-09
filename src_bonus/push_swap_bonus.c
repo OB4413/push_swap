@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:30:00 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/09 13:03:43 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/09 19:03:07 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	free_stack_arr(t_stack **a, char **arr, char ***av)
 	free(*av);
 }
 
-void	ft_do_option(t_stack **a, t_stack **b)
+int	ft_do_option(t_stack **a, t_stack **b)
 {
 	char	*p;
 
@@ -69,10 +69,11 @@ void	ft_do_option(t_stack **a, t_stack **b)
 		{
 			ft_printf("Error\n");
 			free(p);
-			exit(1);
+			return (1);
 		}
 		free(p);
 	}
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -102,11 +103,13 @@ int	main(int ac, char **av)
 		free_stack_arr(&a, &arr, &av);
 		return (1);
 	}
-	ft_do_option(&a, &b);
-	if (check_sort(a) == 0 && b == NULL)
-		ft_printf("OK\n");
-	else
-		ft_printf("KO\n");
+	if (ft_do_option(&a, &b) == 0)
+	{
+		if (check_sort(a) == 0 && b == NULL)
+			ft_printf("OK\n");
+		else
+			ft_printf("KO\n");
+	}
 	free_stack_arr(&a, &arr, &av);
 	return (0);
 }

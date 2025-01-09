@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:30:31 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/09 12:57:58 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/09 15:52:08 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct l_stack
 }					t_stack;
 
 t_stack				*creat_stack(t_stack **a, char **av);
-void				ft_do_option(t_stack **a, t_stack **b);
+int					ft_do_option(t_stack **a, t_stack **b);
 char				*ft_strjoin(char const *s1, char const *s2);
 int					ft_printf(const char *Format, ...);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);

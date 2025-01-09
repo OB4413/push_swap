@@ -1,34 +1,46 @@
 NAME = push_swap
-SOURCES = src/push_swap.c src/creat_stack.c src/command.c src/check_error_and_size.c src/sort_2_3.c src/join_the_arg.c src/sort_stack.c src/sort_stack_utelis.c src/algorithm.c
+BONUS = checker
+SOURCES = src/push_swap.c src/creat_stack.c src/command.c src/command1.c src/check_error_and_size.c src/sort_2_3.c src/join_the_arg.c src/sort_stack.c src/sort_stack_utelis.c src/algorithm.c
+SOURCES_BONUS = src_bonus/push_swap_bonus.c src_bonus/creat_stack_bonus.c src_bonus/command_bonus.c src_bonus/command1_bonus.c src_bonus/check_error_and_size_bonus.c src_bonus/join_the_arg_bonus.c src_bonus/get_next_line.c
 lib = libft/libft.a
+print = ft_printf/libftprintf.a
 
 OBJECTS = $(SOURCES:.c=.o)
+BOBJECTS = $(SOURCES_BONUS:.c=.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(lib) $(OBJECTS)
-	$(CC) $(OBJECTS) $(lib) -o $(NAME)
+$(NAME): $(lib) $(print) $(OBJECTS)
+	$(CC) $(OBJECTS) $(lib) $(print) -o $(NAME)
 
 $(lib):
 	make bonus -C libft
+
+$(print):
+	make -C ft_printf
+
+bonus: all $(lib) $(print) $(BOBJECTS)
+	$(CC) $(BOBJECTS) $(lib) $(print) -o $(BONUS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJECTS)
+	rm -f $(BOBJECTS)
 	make clean -C libft
+	make clean -C ft_printf
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BONUS)
 	make fclean -C libft
+	make fclean -C ft_printf
 
 re: fclean all
-
-r: all clean
 
 .SECONDARY: $(OBJECTS)
 

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error_and_size.c                             :+:      :+:    :+:   */
+/*   check_error_and_size_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/05 09:36:25 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/09 11:22:05 by obarais          ###   ########.fr       */
+/*   Created: 2025/01/07 15:09:40 by obarais           #+#    #+#             */
+/*   Updated: 2025/01/09 11:23:45 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	ft_size_a(t_stack **a)
 {

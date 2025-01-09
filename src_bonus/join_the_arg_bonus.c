@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   join_the_arg.c                                     :+:      :+:    :+:   */
+/*   join_the_arg_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/05 09:37:27 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/09 11:22:27 by obarais          ###   ########.fr       */
+/*   Created: 2025/01/07 15:15:22 by obarais           #+#    #+#             */
+/*   Updated: 2025/01/09 11:24:01 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static char	*ft_strdup_me(const char *s1)
 {

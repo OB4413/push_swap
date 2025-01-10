@@ -6,31 +6,45 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:30:00 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/10 12:12:28 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/10 12:32:14 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	free_stack_arr(t_stack **a, char **arr, char ***av)
+static int	else_1(int i)
 {
-	t_stack	*tmp;
-	int		i;
+	write(1, "Error\n", 6);
+	return (i);
+}
 
-	i = 0;
-	while (*a)
-	{
-		tmp = *a;
-		*a = (*a)->next;
-		free(tmp);
-	}
-	free(*arr);
-	while ((*av)[i])
-	{
-		free((*av)[i]);
-		i++;
-	}
-	free(*av);
+static int	execute_command(char *p, t_stack **a, t_stack **b)
+{
+	if (ft_strncmp(p, "sa\n", ft_strlen(p)) == 0)
+		swap_a_b(&(*a));
+	else if (ft_strncmp(p, "sb\n", ft_strlen(p)) == 0)
+		swap_a_b(&(*b));
+	else if (ft_strncmp(p, "ss\n", ft_strlen(p)) == 0)
+		swap_a_and_b(&(*a), &(*b));
+	else if (ft_strncmp(p, "pa\n", ft_strlen(p)) == 0)
+		push_ab_choose(&(*b), &(*a));
+	else if (ft_strncmp(p, "pb\n", ft_strlen(p)) == 0)
+		push_ab_choose(&(*a), &(*b));
+	else if (ft_strncmp(p, "ra\n", ft_strlen(p)) == 0)
+		rotate_ab(&(*a));
+	else if (ft_strncmp(p, "rb\n", ft_strlen(p)) == 0)
+		rotate_ab(&(*b));
+	else if (ft_strncmp(p, "rr\n", ft_strlen(p)) == 0)
+		rr_ab(&(*a), &(*b));
+	else if (ft_strncmp(p, "rra\n", ft_strlen(p)) == 0)
+		reverse_r_ab(&(*a));
+	else if (ft_strncmp(p, "rrb\n", ft_strlen(p)) == 0)
+		reverse_r_ab(&(*b));
+	else if (ft_strncmp(p, "rrr\n", ft_strlen(p)) == 0)
+		rrr_ab(&(*a), &(*b));
+	else
+		return (else_1(1));
+	return (0);
 }
 
 int	ft_do_option(t_stack **a, t_stack **b)
@@ -43,31 +57,8 @@ int	ft_do_option(t_stack **a, t_stack **b)
 		p = get_next_line(0);
 		if (p == NULL)
 			break ;
-		else if (ft_strncmp(p, "sa\n", ft_strlen(p)) == 0)
-			swap_a_b(&(*a));
-		else if (ft_strncmp(p, "sb\n", ft_strlen(p)) == 0)
-			swap_a_b(&(*b));
-		else if (ft_strncmp(p, "ss\n", ft_strlen(p)) == 0)
-			swap_a_and_b(&(*a), &(*b));
-		else if (ft_strncmp(p, "pa\n", ft_strlen(p)) == 0)
-			push_ab_choose(&(*b), &(*a));
-		else if (ft_strncmp(p, "pb\n", ft_strlen(p)) == 0)
-			push_ab_choose(&(*a), &(*b));
-		else if (ft_strncmp(p, "ra\n", ft_strlen(p)) == 0)
-			rotate_ab(&(*a));
-		else if (ft_strncmp(p, "rb\n", ft_strlen(p)) == 0)
-			rotate_ab(&(*b));
-		else if (ft_strncmp(p, "rr\n", ft_strlen(p)) == 0)
-			rr_ab(&(*a), &(*b));
-		else if (ft_strncmp(p, "rra\n", ft_strlen(p)) == 0)
-			reverse_r_ab(&(*a));
-		else if (ft_strncmp(p, "rrb\n", ft_strlen(p)) == 0)
-			reverse_r_ab(&(*b));
-		else if (ft_strncmp(p, "rrr\n", ft_strlen(p)) == 0)
-			rrr_ab(&(*a), &(*b));
-		else
+		if (execute_command(p, a, b) == 1)
 		{
-			write(1, "Error\n", 6);
 			free(p);
 			return (1);
 		}
@@ -76,7 +67,7 @@ int	ft_do_option(t_stack **a, t_stack **b)
 	return (0);
 }
 
-static	void	creat_dable_do_option(t_stack **a, t_stack **b, char ***av)
+static void	creat_dable_do_option(t_stack **a, t_stack **b, char ***av)
 {
 	if (creat_stack(&(*a), *av) == NULL)
 		return ;

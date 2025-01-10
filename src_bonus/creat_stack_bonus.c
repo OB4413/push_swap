@@ -6,11 +6,32 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:42:38 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/10 11:40:06 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/10 12:25:43 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+
+void	free_stack_arr(t_stack **a, char **arr, char ***av)
+{
+	t_stack	*tmp;
+	int		i;
+
+	i = 0;
+	while (*a)
+	{
+		tmp = *a;
+		*a = (*a)->next;
+		free(tmp);
+	}
+	free(*arr);
+	while ((*av)[i])
+	{
+		free((*av)[i]);
+		i++;
+	}
+	free(*av);
+}
 
 static t_stack	*creat_stack_suporte(t_stack **a, char **av, int i)
 {

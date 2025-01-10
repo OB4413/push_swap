@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:44:45 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/09 21:10:10 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/10 11:15:34 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,13 @@ static char	*ft_get_line(int fd, char **p)
 	}
 	return (join);
 }
+
 static char	*return_and_check(int fd, char **p)
 {
 	char	*last;
 
 	last = ft_get_line(fd, &(*p));
-	if(last != NULL && *p[0] == '\0')
+	if (last != NULL && *p[0] == '\0')
 	{
 		free(*p);
 		*p = NULL;

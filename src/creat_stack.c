@@ -6,20 +6,18 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:45 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/09 11:22:20 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/10 10:43:06 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*creat_stack_suporte(t_stack **a, char **av)
+static t_stack	*creat_stack_suporte(t_stack **a, char **av, int i)
 {
 	t_stack	*p;
 	t_stack	*new_node;
-	int		i;
 
 	p = NULL;
-	i = 0;
 	while (av[i])
 	{
 		new_node = malloc(sizeof(t_stack));
@@ -44,10 +42,13 @@ t_stack	*creat_stack_suporte(t_stack **a, char **av)
 
 t_stack	*creat_stack(t_stack **a, char **av)
 {
+	int	i;
+
+	i = 0;
 	if (error_stack(av) == 1)
 	{
 		write(1, "Error\n", 6);
 		return (NULL);
 	}
-	return (creat_stack_suporte(&(*a), av));
+	return (creat_stack_suporte(&(*a), av, i));
 }

@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:25 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/09 13:03:24 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/10 10:36:15 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	free_stack_arr(t_stack **a, char **arr, char ***av)
 	int		i;
 
 	i = 0;
-	
 	while (*a)
 	{
 		tmp = *a;
@@ -32,6 +31,28 @@ void	free_stack_arr(t_stack **a, char **arr, char ***av)
 		i++;
 	}
 	free(*av);
+}
+
+void	sort_algo(t_stack **a, t_stack **b)
+{
+	if (check_sort(*a) == 1)
+	{
+		if (ft_size_a(a) == 2)
+			sort_2(&(*a));
+		else if (ft_size_a(a) == 3)
+			sort_3(&(*a));
+		else
+			sort_stack(&(*a), &(*b));
+	}
+}
+
+static	int	creat_stack_check_dable_int(t_stack **a, char **av)
+{
+	if (creat_stack(&(*a), av) == NULL)
+		return (1);
+	if (check_dable_int(&(*a)) == 1)
+		return (1);
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -51,25 +72,12 @@ int	main(int ac, char **av)
 		return (1);
 	arr = ft_join(av, ac);
 	av = ft_split(arr, ' ');
-	if (creat_stack(&a, av) == NULL)
+	if (creat_stack_check_dable_int(&a, av) == 1)
 	{
 		free_stack_arr(&a, &arr, &av);
 		return (1);
 	}
-	if (check_dable_int(&a) == 1)
-	{
-		free_stack_arr(&a, &arr, &av);
-		return (1);
-	}
-	if (check_sort(a) == 1)
-	{
-		if (ft_size_a(&a) == 2)
-			sort_2(&a);
-		else if (ft_size_a(&a) == 3)
-			sort_3(&a);
-		else
-			sort_stack(&a, &b);
-	}
+	sort_algo(&a, &b);
 	free_stack_arr(&a, &arr, &av);
 	return (0);
 }

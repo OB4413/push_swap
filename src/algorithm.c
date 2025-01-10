@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 17:19:49 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/09 11:21:52 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/10 11:31:15 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,37 +38,17 @@ int	position_big_int(t_stack **a)
 	return (i);
 }
 
-// khasna n9smo 25 layn
-void	put_big_in_the_top(t_stack **b, t_stack **a)
+static void	put_big_in_the_top2(int i, int size, t_stack **b)
 {
-	int	i;
 	int	j;
-	int	size;
 
 	j = 0;
-	size = ft_size_a(&(*b));
-	i = position_big_int(&(*b));
-	if (i == size && i > 2)
-	{
-		reverse_r_ab(&(*b));
-		ft_printf("rrb\n");
-	}
-	else if (i == 1)
-	{
-		(void)a;
-		return ;
-	}
-	else if (i == 2)
-	{
-		swap_a_b(&(*b));
-		ft_printf("sb\n");
-	}
-	else if (i <= size / 2)
+	if (i <= size / 2)
 	{
 		while (j < i - 1)
 		{
 			rotate_ab(&(*b));
-			ft_printf("rb\n");
+			write(1, "rb\n", 3);
 			j++;
 		}
 	}
@@ -78,15 +58,41 @@ void	put_big_in_the_top(t_stack **b, t_stack **a)
 		while (j < i)
 		{
 			reverse_r_ab(&(*b));
-			ft_printf("rrb\n");
+			write(1, "rrb\n", 4);
 			j++;
 		}
 	}
+}
+
+void	put_big_in_the_top(t_stack **b, t_stack **a)
+{
+	int	i;
+	int	size;
+
+	size = ft_size_a(&(*b));
+	i = position_big_int(&(*b));
+	if (i == size && i > 2)
+	{
+		reverse_r_ab(&(*b));
+		write(1, "rrb\n", 4);
+	}
+	else if (i == 1)
+	{
+		(void)a;
+		return ;
+	}
+	else if (i == 2)
+	{
+		swap_a_b(&(*b));
+		write(1, "sb\n", 3);
+	}
+	else
+		put_big_in_the_top2(i, size, &(*b));
 }
 
 void	algorithm_sort(t_stack **a, t_stack **b)
 {
 	put_big_in_the_top(&(*b), &(*a));
 	push_ab_choose(&(*b), &(*a));
-	ft_printf("pa\n");
+	write(1, "pa\n", 3);
 }

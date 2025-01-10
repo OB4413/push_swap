@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:30:00 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/09 19:03:07 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/10 12:12:28 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,28 @@ int	ft_do_option(t_stack **a, t_stack **b)
 			rrr_ab(&(*a), &(*b));
 		else
 		{
-			ft_printf("Error\n");
+			write(1, "Error\n", 6);
 			free(p);
 			return (1);
 		}
 		free(p);
 	}
 	return (0);
+}
+
+static	void	creat_dable_do_option(t_stack **a, t_stack **b, char ***av)
+{
+	if (creat_stack(&(*a), *av) == NULL)
+		return ;
+	if (check_dable_int(&(*a)) == 1)
+		return ;
+	if (ft_do_option(&(*a), &(*b)) == 0)
+	{
+		if (check_sort(*a) == 0 && *b == NULL)
+			write(1, "OK\n", 3);
+		else
+			write(1, "KO\n", 3);
+	}
 }
 
 int	main(int ac, char **av)
@@ -93,23 +108,7 @@ int	main(int ac, char **av)
 		return (1);
 	arr = ft_join(av, ac);
 	av = ft_split(arr, ' ');
-	if (creat_stack(&a, av) == NULL)
-	{
-		free_stack_arr(&a, &arr, &av);
-		return (1);
-	}
-	if (check_dable_int(&a) == 1)
-	{
-		free_stack_arr(&a, &arr, &av);
-		return (1);
-	}
-	if (ft_do_option(&a, &b) == 0)
-	{
-		if (check_sort(a) == 0 && b == NULL)
-			ft_printf("OK\n");
-		else
-			ft_printf("KO\n");
-	}
+	creat_dable_do_option(&a, &b, &av);
 	free_stack_arr(&a, &arr, &av);
 	return (0);
 }

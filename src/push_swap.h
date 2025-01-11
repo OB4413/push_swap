@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:18 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/10 10:57:22 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/11 11:49:30 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,15 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include "../libft/libft.h"
 
 typedef struct l_stack
 {
-	int				content;
+	long			content;
 	struct l_stack	*next;
 }					t_stack;
 
 t_stack				*creat_stack(t_stack **a, char **av);
-int					ft_printf(const char *Format, ...);
-size_t				ft_strlen(const char *s);
-void				*ft_calloc(size_t count, size_t size);
-char				*ft_strdup(const char *s1);
-void				*ft_memcpy(void *dst, const void *src, size_t n);
-char				**ft_split(char const *s, char c);
-char				*ft_substr(char const *s, unsigned int start, size_t len);
-int					ft_atoi(const char *str);
-char				*ft_strjoin(char const *s1, char const *s2);
 void				swap_a_b(t_stack **ab);
 void				swap_a_and_b(t_stack **a, t_stack **b);
 void				push_ab_choose(t_stack **ab1, t_stack **ab2);

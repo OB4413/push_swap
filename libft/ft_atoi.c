@@ -6,13 +6,13 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 22:27:40 by obarais           #+#    #+#             */
-/*   Updated: 2024/11/05 12:34:47 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/11 11:43:40 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	size_t	i;
 	int		a;
@@ -38,5 +38,5 @@ int	ft_atoi(const char *str)
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
-	return ((int)num * a);
+	return (num * a);
 }

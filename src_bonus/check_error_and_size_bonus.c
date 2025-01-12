@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:09:40 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/09 11:23:45 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/12 08:59:04 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	check_empty(char **av, int ac)
 	{
 		if (av[i][0] == '\0')
 		{
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 			return (1);
 		}
 		i++;
@@ -94,7 +94,7 @@ int	check_dable_int(t_stack **a)
 		{
 			if (tmp->content == current->content)
 			{
-				write(1, "Error\n", 6);
+				write(2, "Error\n", 6);
 				return (1);
 			}
 			current = current->next;

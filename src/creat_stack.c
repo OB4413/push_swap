@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:45 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/11 11:56:06 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/12 08:57:45 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_stack	*creat_stack_suporte(t_stack **a, char **av, int i, t_stack *p)
 			return (NULL);
 		new_node->content = ft_atoi(av[i]);
 		if (new_node->content > INT_MAX || new_node->content < INT_MIN)
-			return (write(1, "Error\n", 6), NULL);
+			return (write(2, "Error\n", 6), NULL);
 		new_node->next = NULL;
 		if (!p)
 		{
@@ -49,7 +49,7 @@ t_stack	*creat_stack(t_stack **a, char **av)
 	p = NULL;
 	if (error_stack(av) == 1)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		return (NULL);
 	}
 	return (creat_stack_suporte(&(*a), av, i, p));

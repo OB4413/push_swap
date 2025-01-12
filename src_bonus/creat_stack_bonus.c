@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:42:38 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/10 12:25:43 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/12 08:59:24 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_stack	*creat_stack(t_stack **a, char **av)
 	i = 0;
 	if (error_stack(av) == 1)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		return (NULL);
 	}
 	return (creat_stack_suporte(&(*a), av, i));

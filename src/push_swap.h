@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:18 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/11 11:49:30 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/12 18:44:58 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int					*ft_smol_big(int size, int *arr);
 void				algorithm_sort(t_stack **a, t_stack **b);
 int					ft_calcul_end(int size);
 int					check_empty(char **av, int ac);
-void				put_big_in_the_top(t_stack **b, t_stack **a);
+void				put_big_in_the_top(t_stack **b);
 int					position_big_int(t_stack **a);
 int					check_dable_int(t_stack **a);
 void				free_stack_arr(t_stack **a, char **arr, char ***av);

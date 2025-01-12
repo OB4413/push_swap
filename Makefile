@@ -18,7 +18,7 @@ $(NAME): $(lib) $(OBJECTS)
 $(lib):
 	make bonus -C libft
 
-bonus: all $(lib) $(BOBJECTS)
+bonus: $(lib) $(BOBJECTS)
 	$(CC) $(CFLAGS) $(BOBJECTS) $(lib) -o $(BONUS)
 
 %.o: %.c

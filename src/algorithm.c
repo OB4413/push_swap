@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 17:19:49 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/10 11:31:15 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/12 18:47:12 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,27 +64,24 @@ static void	put_big_in_the_top2(int i, int size, t_stack **b)
 	}
 }
 
-void	put_big_in_the_top(t_stack **b, t_stack **a)
+void	put_big_in_the_top(t_stack **b)
 {
 	int	i;
 	int	size;
 
 	size = ft_size_a(&(*b));
 	i = position_big_int(&(*b));
-	if (i == size && i > 2)
-	{
-		reverse_r_ab(&(*b));
-		write(1, "rrb\n", 4);
-	}
-	else if (i == 1)
-	{
-		(void)a;
+	if (i == 1)
 		return ;
-	}
 	else if (i == 2)
 	{
 		swap_a_b(&(*b));
 		write(1, "sb\n", 3);
+	}
+	else if (i == size)
+	{
+		reverse_r_ab(&(*b));
+		write(1, "rrb\n", 4);
 	}
 	else
 		put_big_in_the_top2(i, size, &(*b));
@@ -92,7 +89,7 @@ void	put_big_in_the_top(t_stack **b, t_stack **a)
 
 void	algorithm_sort(t_stack **a, t_stack **b)
 {
-	put_big_in_the_top(&(*b), &(*a));
+	put_big_in_the_top(&(*b));
 	push_ab_choose(&(*b), &(*a));
 	write(1, "pa\n", 3);
 }

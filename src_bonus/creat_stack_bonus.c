@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:42:38 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/12 08:59:24 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/12 17:49:28 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ static t_stack	*creat_stack_suporte(t_stack **a, char **av, int i)
 			p->next = new_node;
 			p = p->next;
 		}
+		if (new_node->content > INT_MAX || new_node->content < INT_MIN)
+			return (write(2, "Error\n", 6), NULL);
 		i++;
 	}
 	return (*a);

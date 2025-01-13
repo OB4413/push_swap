@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 09:38:43 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/12 18:28:58 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/13 10:23:55 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ static void	if_1(t_stack **a, t_stack **b, int *start, int *end)
 static void	else_if_1(t_stack **a, t_stack **b, int *start, int *end)
 {
 	push_ab_choose(&(*a), &(*b));
-	swap_a_b(&(*b));
-	write(1, "pb\nsb\n", 6);
+	write(1, "pb\n", 3);
 	if (*start != *end)
 		*start += 1;
 	if (*end != ft_size_a(&(*a)))

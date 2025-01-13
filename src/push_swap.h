@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:18 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/12 18:44:58 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/12 23:08:03 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int					check_sort(t_stack *a);
 int					error_stack(char **av);
 void				sort_2(t_stack **a);
 void				sort_3(t_stack **a);
+void				sort_4(t_stack **a, t_stack **b);
+void				sort_5(t_stack **a, t_stack **b);
 void				sort_stack(t_stack **a, t_stack **b);
 int					*ft_sort_arr(t_stack *a, int size);
 int					*ft_smol_big(int size, int *arr);

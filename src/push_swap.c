@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:41:25 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/12 17:39:45 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/12 23:08:20 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ void	sort_algo(t_stack **a, t_stack **b)
 			sort_2(&(*a));
 		else if (ft_size_a(a) == 3)
 			sort_3(&(*a));
+		else if (ft_size_a(a) == 4)
+			sort_4(&(*a), &(*b));
+		else if (ft_size_a(a) == 5)
+			sort_5(&(*a), &(*b));
 		else
 			sort_stack(&(*a), &(*b));
 	}

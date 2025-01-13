@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_2_3.c                                         :+:      :+:    :+:   */
+/*   sort_2_3_4_5.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 09:33:40 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/10 11:34:41 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/12 23:23:50 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,54 @@ void	sort_3(t_stack **a)
 			write(1, "sa\n", 3);
 		}
 	}
+}
+
+void	sort_4(t_stack **a, t_stack **b)
+{
+	int i;
+
+	i = position_big_int(&(*a));
+	while (i != 1)
+	{
+		if (i == 4)
+		{
+			reverse_r_ab(&(*a));
+			write(1, "ra\n", 3);
+			break;
+		}
+		rotate_ab(&(*a));
+		write(1, "ra\n", 3);
+		i--;
+	}
+	push_ab_choose(&(*a), &(*b));
+	write(1, "pb\n", 3);
+	sort_3(&(*a));
+	push_ab_choose(&(*b), &(*a));
+	rotate_ab(&(*a));
+	write(1, "pa\nra\n", 6);
+}
+
+void	sort_5(t_stack **a, t_stack **b)
+{
+	int i;
+
+	i = position_big_int(&(*a));
+	while (i != 1)
+	{
+		if (i == 5)
+		{
+			reverse_r_ab(&(*a));
+			write(1, "ra\n", 3);
+			break;
+		}
+		rotate_ab(&(*a));
+		write(1, "ra\n", 3);
+		i--;
+	}
+	push_ab_choose(&(*a), &(*b));
+	write(1, "pb\n", 3);
+	sort_4(&(*a), &(*b));
+	push_ab_choose(&(*b), &(*a));
+	rotate_ab(&(*a));
+	write(1, "pa\nra\n", 6);
 }

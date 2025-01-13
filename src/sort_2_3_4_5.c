@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 09:33:40 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/12 23:23:50 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/13 17:21:23 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,11 @@ void	sort_3(t_stack **a)
 
 void	sort_4(t_stack **a, t_stack **b)
 {
-	int i;
+	int	i;
 
 	i = position_big_int(&(*a));
 	while (i != 1)
 	{
-		if (i == 4)
-		{
-			reverse_r_ab(&(*a));
-			write(1, "ra\n", 3);
-			break;
-		}
 		rotate_ab(&(*a));
 		write(1, "ra\n", 3);
 		i--;
@@ -73,17 +67,11 @@ void	sort_4(t_stack **a, t_stack **b)
 
 void	sort_5(t_stack **a, t_stack **b)
 {
-	int i;
+	int	i;
 
 	i = position_big_int(&(*a));
 	while (i != 1)
 	{
-		if (i == 5)
-		{
-			reverse_r_ab(&(*a));
-			write(1, "ra\n", 3);
-			break;
-		}
 		rotate_ab(&(*a));
 		write(1, "ra\n", 3);
 		i--;

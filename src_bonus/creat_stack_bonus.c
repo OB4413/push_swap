@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:42:38 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/12 17:49:28 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/13 17:11:39 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,10 @@ void	free_stack_arr(t_stack **a, char **arr, char ***av)
 	free(*av);
 }
 
-static t_stack	*creat_stack_suporte(t_stack **a, char **av, int i)
+static t_stack	*creat_stack_suporte(t_stack **a, char **av, int i, t_stack *p)
 {
-	t_stack	*p;
 	t_stack	*new_node;
 
-	p = NULL;
 	while (av[i])
 	{
 		new_node = malloc(sizeof(t_stack));
@@ -65,13 +63,15 @@ static t_stack	*creat_stack_suporte(t_stack **a, char **av, int i)
 
 t_stack	*creat_stack(t_stack **a, char **av)
 {
-	int	i;
+	int		i;
+	t_stack	*p;
 
 	i = 0;
+	p = NULL;
 	if (error_stack(av) == 1)
 	{
 		write(2, "Error\n", 6);
 		return (NULL);
 	}
-	return (creat_stack_suporte(&(*a), av, i));
+	return (creat_stack_suporte(&(*a), av, i, p));
 }

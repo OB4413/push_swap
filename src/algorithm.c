@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 17:19:49 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/12 18:47:12 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/13 18:08:14 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,6 @@ void	put_big_in_the_top(t_stack **b)
 	i = position_big_int(&(*b));
 	if (i == 1)
 		return ;
-	else if (i == 2)
-	{
-		swap_a_b(&(*b));
-		write(1, "sb\n", 3);
-	}
-	else if (i == size)
-	{
-		reverse_r_ab(&(*b));
-		write(1, "rrb\n", 4);
-	}
 	else
 		put_big_in_the_top2(i, size, &(*b));
 }

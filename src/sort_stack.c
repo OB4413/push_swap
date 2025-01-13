@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 09:38:43 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/13 10:23:55 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/13 18:10:16 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,28 @@
 
 static void	if_1(t_stack **a, t_stack **b, int *start, int *end)
 {
+	int	j;
+
+	j = ft_size_a(&(*a)) + ft_size_a(&(*b));
 	push_ab_choose(&(*a), &(*b));
 	rotate_ab(&(*b));
 	write(1, "pb\nrb\n", 6);
-	if (*start != *end)
+	if (*start < *end)
 		*start += 1;
-	if (*end != ft_size_a(&(*a)))
+	if (*end < j - 1)
 		*end += 1;
 }
 
 static void	else_if_1(t_stack **a, t_stack **b, int *start, int *end)
 {
+	int	j;
+
+	j = ft_size_a(&(*a)) + ft_size_a(&(*b));
 	push_ab_choose(&(*a), &(*b));
 	write(1, "pb\n", 3);
-	if (*start != *end)
+	if (*start < *end)
 		*start += 1;
-	if (*end != ft_size_a(&(*a)))
+	if (*end < j - 1)
 		*end += 1;
 }
 
@@ -37,19 +43,17 @@ static void	ft_sort_1(t_stack **a, t_stack **b, int size, int *s)
 {
 	int		start;
 	int		end;
-	t_stack	*tmp;
 
 	start = 0;
 	end = ft_calcul_end(size);
 	while (size != 0)
 	{
-		tmp = *a;
-		if (tmp->content <= s[start])
+		if ((*a)->content <= s[start])
 		{
 			if_1(&(*a), &(*b), &start, &end);
 			size--;
 		}
-		else if (tmp->content <= s[end])
+		else if ((*a)->content <= s[end])
 		{
 			else_if_1(&(*a), &(*b), &start, &end);
 			size--;

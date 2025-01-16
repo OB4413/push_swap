@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 11:17:12 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/13 10:52:30 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/16 17:14:02 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	rotate_ab(t_stack **ab)
 {
 	t_stack	*tmp;
 
-	if (ab && *ab)
+	if (ab && *ab && (*ab)->next)
 	{
 		tmp = *ab;
 		while (tmp->next != NULL)

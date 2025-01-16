@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 22:27:40 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/16 17:30:07 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/16 20:00:47 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ long	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if ((num * a) > INT_MAX || (num *a) < INT_MIN)
+		if ((num * a) > INT_MAX || (num * a) < INT_MIN)
 			return (num * a);
 		num = num * 10 + (str[i] - 48);
 		i++;

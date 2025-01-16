@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 11:28:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/09 11:29:42 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/16 10:48:44 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	rr_ab(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	if (a && *a)
+	if (a && *a && (*a)->next != NULL)
 	{
 		tmp = *a;
 		while (tmp->next != NULL)
@@ -25,7 +25,7 @@ void	rr_ab(t_stack **a, t_stack **b)
 		*a = (*a)->next;
 		tmp->next->next = NULL;
 	}
-	if (b && *b)
+	if (b && *b && (*b)->next != NULL)
 	{
 		tmp = *b;
 		while (tmp->next != NULL)
@@ -41,7 +41,7 @@ void	reverse_r_ab(t_stack **ab)
 	t_stack	*tmp;
 	t_stack	*p;
 
-	if (ab && *ab)
+	if (ab && *ab && (*ab)->next != NULL)
 	{
 		tmp = *ab;
 		while (tmp->next->next != NULL)
@@ -58,7 +58,7 @@ void	rrr_ab(t_stack **a, t_stack **b)
 	t_stack	*tmp;
 	t_stack	*p;
 
-	if (a && *a)
+	if (a && *a && (*a)->next != NULL)
 	{
 		tmp = *a;
 		while (tmp->next->next != NULL)
@@ -68,7 +68,7 @@ void	rrr_ab(t_stack **a, t_stack **b)
 		p->next = *a;
 		*a = p;
 	}
-	if (b && *b)
+	if (b && *b && (*b)->next != NULL)
 	{
 		tmp = *b;
 		while (tmp->next->next != NULL)
